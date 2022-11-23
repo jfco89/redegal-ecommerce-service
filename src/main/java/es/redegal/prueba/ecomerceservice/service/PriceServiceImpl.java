@@ -5,11 +5,10 @@ import es.redegal.prueba.ecomerceservice.model.dao.PriceDao;
 import es.redegal.prueba.ecomerceservice.service.dto.PriceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+import org.yaml.snakeyaml.util.ArrayUtils;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PriceServiceImpl implements PriceService {
@@ -44,6 +43,6 @@ public class PriceServiceImpl implements PriceService {
 
         List<Price> listPrices = priceDao.findByParams(brandId,product_id,date);
 
-        return mapToPriceDto(listPrices.stream().findFirst().get());
+        return !listPrices.isEmpty()?mapToPriceDto(listPrices.stream().findFirst().get()): null;
     }
 }
