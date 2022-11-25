@@ -28,15 +28,15 @@ public class PriceApiTest {
     @Test
     public void testGetRequest(){
         try {
-            MvcResult result1 = this.mockMvc.perform(MockMvcRequestBuilders.get("/price?"+queryRequest1)).
+            MvcResult result1 = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/price?"+queryRequest1)).
                     andDo(print()).andReturn();
-            MvcResult result2 = this.mockMvc.perform(MockMvcRequestBuilders.get("/price?"+queryRequest2)).
+            MvcResult result2 = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/price?"+queryRequest2)).
                     andDo(print()).andReturn();
-            MvcResult result3 = this.mockMvc.perform(MockMvcRequestBuilders.get("/price?"+queryRequest3)).
+            MvcResult result3 = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/price?"+queryRequest3)).
                     andDo(print()).andReturn();
-            MvcResult result4 = this.mockMvc.perform(MockMvcRequestBuilders.get("/price?"+queryRequest4)).
+            MvcResult result4 = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/price?"+queryRequest4)).
                     andDo(print()).andReturn();
-            MvcResult result5 = this.mockMvc.perform(MockMvcRequestBuilders.get("/price?"+queryRequest5)).
+            MvcResult result5 = this.mockMvc.perform(MockMvcRequestBuilders.get("/api/price?"+queryRequest5)).
                     andDo(print()).andReturn();
         } catch (Exception e) {
             //TODO

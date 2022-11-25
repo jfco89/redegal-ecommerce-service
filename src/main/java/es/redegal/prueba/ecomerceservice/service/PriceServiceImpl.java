@@ -26,7 +26,20 @@ public class PriceServiceImpl implements PriceService {
         return listPricesDto;
     }
 
+    @Override
+    public PriceDto findPriceByParams(Integer brandId, Integer product_id, Date date) {
+
+        List<Price> listPrices = priceDao.findByParams(brandId,product_id,date);
+
+        Price price = listPrices.stream().max(Comparator.comparing(p -> p.getPriority())).orElse(null);
+        if(price == null){
+            throw new NoSuchElementException();
+        }
+        return mapToPriceDto(price);
+    }
+
     private PriceDto mapToPriceDto(Price price) {
+        //TODO cambiar por mapstrut
         PriceDto priceDto = new PriceDto();
         priceDto.setBrandId(price.getBrandId());
         priceDto.setStartDate(price.getStartDate());
@@ -36,13 +49,5 @@ public class PriceServiceImpl implements PriceService {
         priceDto.setPrice(price.getPrice());
         priceDto.setCurr(price.getCurr());
         return priceDto;
-    }
-
-    @Override
-    public PriceDto findPriceByParams(Integer brandId, Integer product_id, Date date) {
-
-        List<Price> listPrices = priceDao.findByParams(brandId,product_id,date);
-
-        return !listPrices.isEmpty()?mapToPriceDto(listPrices.stream().findFirst().get()): null;
     }
 }
