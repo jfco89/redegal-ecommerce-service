@@ -33,7 +33,7 @@ Run spring-boot application
 - Windows
 
 ```bash
-  .\mvnw.cmd spring-boot:run 
+  mvnw.cmd spring-boot:run 
 ```
 - Linux 
 
