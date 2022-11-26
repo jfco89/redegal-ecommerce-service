@@ -3,6 +3,7 @@ package es.redegal.prueba.ecomerceservice.service;
 import es.redegal.prueba.ecomerceservice.model.Price;
 import es.redegal.prueba.ecomerceservice.model.dao.PriceDao;
 import es.redegal.prueba.ecomerceservice.service.dto.PriceDto;
+import es.redegal.prueba.ecomerceservice.service.exception.ProductPriceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -33,7 +34,7 @@ public class PriceServiceImpl implements PriceService {
 
         Price price = listPrices.stream().max(Comparator.comparing(p -> p.getPriority())).orElse(null);
         if(price == null){
-            throw new NoSuchElementException();
+            throw new ProductPriceNotFoundException();
         }
         return mapToPriceDto(price);
     }
