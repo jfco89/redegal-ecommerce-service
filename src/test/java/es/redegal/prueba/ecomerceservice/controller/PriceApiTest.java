@@ -1,6 +1,5 @@
 package es.redegal.prueba.ecomerceservice.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.redegal.prueba.ecomerceservice.service.dto.PriceDto;
 import org.junit.Assert;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -29,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class PriceApiTest {
 
-    private static final String queryRequest = "/api/price?brandId=brandIdParam&productId=productIdParam&date=dateParam";
+    private static final String queryRequest = "/api/v1/price?brandId=brandIdParam&productId=productIdParam&date=dateParam";
     public static final String BRAND_ID_PARAM = "brandIdParam";
     public static final String PRODUCT_ID_PARAM = "productIdParam";
     public static final String DATE_PARAM = "dateParam";

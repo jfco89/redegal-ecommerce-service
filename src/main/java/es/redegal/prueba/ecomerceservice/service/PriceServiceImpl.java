@@ -7,7 +7,6 @@ import es.redegal.prueba.ecomerceservice.service.exception.ProductPriceNotFoundE
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -17,16 +16,6 @@ public class PriceServiceImpl implements PriceService {
 
     @Autowired
     PriceDao priceDao;
-
-    @Override
-    public List<PriceDto> findAllPrices() {
-        List<Price> listPrices = priceDao.findAll();
-        List<PriceDto> listPricesDto = new ArrayList<>();
-        for(Price price: listPrices){
-            listPricesDto.add(mapToPriceDto(price));
-        }
-        return listPricesDto;
-    }
 
     @Override
     public PriceDto findPriceByParams(Integer brandId, Integer product_id, Date date) {

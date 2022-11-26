@@ -3,7 +3,6 @@ package es.redegal.prueba.ecomerceservice.controller;
 
 import es.redegal.prueba.ecomerceservice.service.PriceService;
 import es.redegal.prueba.ecomerceservice.service.dto.PriceDto;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -14,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-import java.util.NoSuchElementException;
 
 @RestController()
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class PriceApi {
 
     @Autowired
