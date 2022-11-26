@@ -10,7 +10,7 @@ public class Price {
 
     @Id
     @Column(name="price_id")
-    private Integer price_id;
+    private Integer priceId;
     @Column(name="brand_id")
     private Integer brandId;
     @Column(name="start_date")
@@ -28,12 +28,12 @@ public class Price {
     @Column(name="curr")
     private String curr;
 
-    public Integer getPrice_id() {
-        return price_id;
+    public Integer getPriceId() {
+        return priceId;
     }
 
-    public void setPrice_id(Integer price_id) {
-        this.price_id = price_id;
+    public void setPriceId(Integer priceId) {
+        this.priceId = priceId;
     }
 
     public Integer getBrandId() {
