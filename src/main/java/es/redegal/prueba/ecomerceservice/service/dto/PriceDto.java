@@ -78,4 +78,34 @@ public class PriceDto {
     public void setCurr(String curr) {
         this.curr = curr;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PriceDto priceDto = (PriceDto) o;
+
+        if (!brandId.equals(priceDto.brandId)) return false;
+        if (!startDate.equals(priceDto.startDate)) return false;
+        if (!endDate.equals(priceDto.endDate)) return false;
+        if (!priceList.equals(priceDto.priceList)) return false;
+        if (!productId.equals(priceDto.productId)) return false;
+        if (!priority.equals(priceDto.priority)) return false;
+        if (!price.equals(priceDto.price)) return false;
+        return curr.equals(priceDto.curr);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = brandId.hashCode();
+        result = 31 * result + startDate.hashCode();
+        result = 31 * result + endDate.hashCode();
+        result = 31 * result + priceList.hashCode();
+        result = 31 * result + productId.hashCode();
+        result = 31 * result + priority.hashCode();
+        result = 31 * result + price.hashCode();
+        result = 31 * result + curr.hashCode();
+        return result;
+    }
 }

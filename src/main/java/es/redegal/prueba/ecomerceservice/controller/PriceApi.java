@@ -31,7 +31,7 @@ public class PriceApi {
     @GetMapping("/price")
     public ResponseEntity<PriceDto> findPrices(@RequestParam("brandId")Integer brandId,
                                               @RequestParam("productId")Integer productId,
-                                              @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date date){
+                                              @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") Date date){
 
         PriceDto priceDto = priceService.findPriceByParams(brandId,productId,date);
         return new ResponseEntity<>(priceDto, HttpStatus.OK);
