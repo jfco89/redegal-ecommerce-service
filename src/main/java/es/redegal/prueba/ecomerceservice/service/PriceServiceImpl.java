@@ -6,10 +6,11 @@ import es.redegal.prueba.ecomerceservice.service.dto.PriceDto;
 import es.redegal.prueba.ecomerceservice.service.exception.ProductPriceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-import org.yaml.snakeyaml.util.ArrayUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class PriceServiceImpl implements PriceService {
@@ -47,6 +48,7 @@ public class PriceServiceImpl implements PriceService {
         priceDto.setEndDate(price.getEndDate());
         priceDto.setPriceList(price.getPriceList());
         priceDto.setProductId(price.getProductId());
+        priceDto.setPriority(price.getPriority());
         priceDto.setPrice(price.getPrice());
         priceDto.setCurr(price.getCurr());
         return priceDto;
